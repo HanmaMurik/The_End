@@ -9,12 +9,23 @@
 <hr>
 <form method="POST">
     {% csrf_token %}
-    <input type="text">
+    <input type="text" name="search_product">
     <button>Поиск</button>
 </form>
 <hr>
 <a href="/about"><h2>О нас</h2></a>
 <hr>
 <a href="/contacts"><h2>Контакты</h2></a>
+<hr>
+Категории: <br>
+{% for category in categories %}
+<a href="category/{{ category.id }}">{{ category.category_name }}</a>
+{% endfor %}
+<hr>
+Продукты:
+{% for product in products %}
+<a href="product/{{ product.id }}">{{ product.product_name }}</a>
+{% endfor %}
+
 </body>
 </html>
