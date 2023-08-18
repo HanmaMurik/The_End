@@ -26,6 +26,17 @@
 {% for product in products %}
 <a href="product/{{ product.id }}">{{ product.product_name }}</a>
 {% endfor %}
+<hr>
+{% if user.is_authenticated %}
+<a href="/cart">Корзина</a><br>
+<a href="/accounts/logout">Выйти</a>
+<hr>
+{% else %}
+<a href="/accounts/login">Войти</a><br>
+<a href="/register">Регистрация</a>
+<hr>
+{% endif %}
+
 
 </body>
 </html>
